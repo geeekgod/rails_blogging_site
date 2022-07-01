@@ -62,6 +62,19 @@ class BlogsController < ApplicationController
     end
   end
 
+  def like_a_blog(params)
+    like = Like.find_by(user_id: current_user[:id], blog_id: params)
+    if like
+        puts 1
+      Like.destroy_by(id: like[:id])
+    else
+        puts 2
+      Like.create(user_id: current_user[:id], blog_id: params)
+    end
+  end
+
+  helper_method :like_a_blog
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +84,6 @@ class BlogsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def blog_params
-    params.require(:blog).permit(:title, :description)
+    params.require(:blog).permit(:title, :description, :blog_id )
   end
 end
