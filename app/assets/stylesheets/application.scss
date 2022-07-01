@@ -1,0 +1,14 @@
+ /*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "materialize";
+
+.btn{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.card-action{
+    padding: 0 24px;
+}

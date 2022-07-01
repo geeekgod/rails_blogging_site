@@ -1,13 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Blogs</h1>
+<h4>Latest Blogs</h4>
 
 <div id="blogs">
   <% @blogs.each do |blog| %>
+    <div class="card z-depth-1 teal lighten-1">
+    <div class="card-content white-text">
     <%= render blog %>
-    <p>
+    </div>
+      <div class="card-action">
+      <p>
       <%= link_to "Show this blog", blog %>
     </p>
+      </div>
+    </div>
   <% end %>
 </div>
 

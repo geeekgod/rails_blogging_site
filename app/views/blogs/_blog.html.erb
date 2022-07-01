@@ -1,17 +1,16 @@
 <div id="<%= dom_id blog %>">
-  <p>
-    <strong>Title:</strong>
+  <span class="card-title">
     <%= blog.title %>
-  </p>
+  </span>
 
   <p>
-    <strong>Description:</strong>
     <%= blog.description %>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= blog.user_id %>
+    <div>
+    <%= User.find_by(id: blog.user_id).email %>
+    </div>
   </p>
 
 </div>
