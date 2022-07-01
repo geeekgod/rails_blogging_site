@@ -3,13 +3,14 @@
     <%= blog.title %>
   </span>
 
-  <p>
+  <p style="word-break: break-all">
     <%= blog.description %>
   </p>
 
   <p>
     <div>
-    <%= User.find_by(id: blog.user_id).email %>
+    Post by
+    <strong><%= User.find_by(id: blog.user_id).name %></strong>
     </div>
   </p>
 

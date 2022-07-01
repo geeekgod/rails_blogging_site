@@ -8,8 +8,5 @@
     <%= button_to "Destroy this blog", @blog, method: :delete, :class => "waves-effect waves-light btn" %>
   <% end %>
 
-  <div class="waves-effect waves-light btn">
-    <i class="material-icons ">arrow_back</i>
-  <%= link_to "Back to blogs", blogs_path , :class => "z-depth-0 btn"%>
-  </div>
+  <%= link_to "Back to blogs", blogs_path %>
 </div>

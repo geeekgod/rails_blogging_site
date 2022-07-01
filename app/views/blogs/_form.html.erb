@@ -18,10 +18,10 @@
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area(:description, :class => "materialize-textarea") %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit :class => "waves-effect waves-light btn" %>
   </div>
 <% end %>

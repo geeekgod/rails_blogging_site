@@ -15,10 +15,13 @@
     <% if current_user %>
       <nav>
       <div class="nav-wrapper blue-grey darken-1">
-      <div href="#" class="brand-logo">Blogger</div>
+      <a href="/" class="brand-logo">Blogger</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
         <%= button_to("logout", destroy_user_session_path, method: :delete, :class => "waves-effect waves-light btn") %>
+        </li>
+        <li>
+        <%= link_to('Edit Profile', edit_user_registration_path, :class => "waves-effect waves-light btn")%>
         </li>
       </ul>
     </div>
