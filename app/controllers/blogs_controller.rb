@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ show edit update destroy like_a_blog ]
 
   # GET /blogs or /blogs.json
   def index
@@ -62,18 +62,16 @@ class BlogsController < ApplicationController
     end
   end
 
-  def like_a_blog(params)
-    like = Like.find_by(user_id: current_user[:id], blog_id: params)
+  def like_a_blog
+    like = Like.find_by(user_id: current_user[:id], blog_id: params[:id])
     if like
-        puts 1
       Like.destroy_by(id: like[:id])
     else
-        puts 2
-      Like.create(user_id: current_user[:id], blog_id: params)
+      Like.create(user_id: current_user[:id], blog_id: params[:id])
     end
+    redirect_to @blog
   end
 
-  helper_method :like_a_blog
 
   private
 

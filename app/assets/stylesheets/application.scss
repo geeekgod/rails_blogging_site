@@ -9,6 +9,13 @@
     margin-top: 5px;
     margin-left: 5px;
 }
+.card{
+    border-radius: 10px;
+}
 .card-action{
-    padding: 0 24px;
+    padding: 10px 24px !important;
+    border-radius: 10px !important;
+}
+.card-action p{
+    margin: 5px 0;
 }
