@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ show edit update destroy like_a_blog ]
 
   # GET /blogs or /blogs.json
   def index
@@ -62,6 +62,17 @@ class BlogsController < ApplicationController
     end
   end
 
+  def like_a_blog
+    like = Like.find_by(user_id: current_user[:id], blog_id: params[:id])
+    if like
+      Like.destroy_by(id: like[:id])
+    else
+      Like.create(user_id: current_user[:id], blog_id: params[:id])
+    end
+    redirect_to @blog
+  end
+
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +82,6 @@ class BlogsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def blog_params
-    params.require(:blog).permit(:title, :description)
+    params.require(:blog).permit(:title, :description, :blog_id )
   end
 end

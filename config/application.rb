@@ -20,5 +20,6 @@ module BloggingSite
     # config.eager_load_paths << Rails.root.join("extras")
     config.autoload_paths += Dir[Rails.root.join('app', 'services', '{**/}')]
     config.autoload_paths += Dir[Rails.root.join('lib', '{**/}')]
+    config.action_controller.include_all_helpers = true
   end
 end
